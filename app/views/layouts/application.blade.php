@@ -59,7 +59,10 @@
 @yield('content')
 
 <footer class="container">
-    <p class="muted text-center"><i class="icon-beer" title="Repositronic Mega 5000 (BMO Edition)"></i></p>
+    <p class="muted text-center">
+        <i class="icon-beer" title="Repositronic Mega 5000 (BMO Edition)"></i>
+        <a href="https://github.com/alanly/thedrop"><i class="icon-github" title="Look at the sauce!"></i></a>
+    </p>
     @if (Sentry::getUser()->isAdmin())
     <p class="muted text-center">Current Environment: <code>{{{ App::environment() }}}</code></p>
     @endif
