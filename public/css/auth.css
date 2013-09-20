@@ -1,0 +1,32 @@
+.center-unit {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+.box {
+    padding: 30px;
+    background-color: #fafafa;
+    border: 1px solid #d4d4d4;
+}
+.link {
+    position:fixed;
+    right: 10px;
+    bottom: 10px;
+    font-size: 10px;
+}
+.register-link {
+    color: #fafafa;
+}
+@media (max-width: 480px) {
+    .center-unit {
+        width: 75%;
+    }
+    .box {
+        padding: 20px;
+    }
+}
