@@ -28,7 +28,7 @@ App::before(function($request)
             Session::flash('open.request.count', FileRequest::where('status', 0)->count());
     }
 
-    if (! (Request::is('download/*') || Request::secure()))
+    if (! (Request::is('download/*') || Request::secure() || Request::getHttpHost() == 'api.thedrop.pw'))
         return Redirect::secure(Request::path());
 });
 
