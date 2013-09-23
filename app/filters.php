@@ -28,8 +28,20 @@ App::before(function($request)
             Session::flash('open.request.count', FileRequest::where('status', 0)->count());
     }
 
-    if (! (Request::is('download/*') || Request::secure() || Request::getHttpHost() == 'api.thedrop.pw'))
-        return Redirect::secure(Request::path());
+    /*
+    | Check if we want to redirect the request to the secure version.
+    */
+    if (Config::get('https.force_secure', false)) {
+        $doNotRedirect = true;
+
+        // Check conditions to see if it's unnecessary to redirect.
+        $doNotRedirect = $doNotRedirect && Request::is('download/*');
+        $doNotRedirect = $doNotRedirect && Request::secure();
+        $doNotRedirect = $doNotRedirect && Request::getHttpHost() == 'api.thedrop.pw';
+
+        // If none of those conditions exist, redirect.
+        if (! $doNotRedirect) return Redirect::secure(Request::path());
+    }
 });
 
 
