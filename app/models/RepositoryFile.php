@@ -402,12 +402,18 @@ class MetadataParser
     private static function getSummaryFromTrakt($type, $data)
     {
 
-        $url = "http://api.trakt.tv/" . implode('/', $type) . "/summary.json/1edc74874f676ae6c67b22ebdc511f35/" . implode('/', $data);
+        $url = "http://api.trakt.tv/"
+                . implode('/', $type) 
+                . "/summary.json/"
+                . Config::get('metadata.connections.trakt.key')
+                . "/"
+                . implode('/', $data);
 
         if (($response = @file_get_contents($url)) != false) {
             $summary = json_decode($response);
 
-            if (! property_exists($summary, 'error')) return $summary;
+            if (! property_exists($summary, 'error'))
+                return $summary;
         }
 
         return false;
