@@ -199,6 +199,9 @@ class RepositoryFile extends Eloquent
                 break;
         }
 
+        // Sanitize the filename by removing all invalid characters and replacing them with underscores.
+        $prettyFilename = preg_replace('/[<>:"\/\\\|\?\*]/', '_', $prettyFilename);
+
         $this->metadata()->save(new FileMeta(array('key' => 'pretty.filename', 'value' => $prettyFilename)));
 
         return $prettyFilename;
