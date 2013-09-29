@@ -31,7 +31,7 @@ App::before(function($request)
     /*
     | Check if we want to redirect the request to the secure version.
     */
-    if (Config::get('https.force_secure', false) || ! Request::secure()) {
+    if (Config::get('https.force_secure', false) && ! Request::secure()) {
         $doNotRedirect = false;
 
         // Check conditions to see if it's unnecessary to redirect.
