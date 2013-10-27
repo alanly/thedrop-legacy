@@ -202,6 +202,9 @@ class RepositoryFile extends Eloquent
         // Sanitize the filename by removing all invalid characters and replacing them with underscores.
         $prettyFilename = preg_replace('/[<>:"\/\\\|\?\*]/', '_', $prettyFilename);
 
+        // Sanitize the filename, removing all unicode characters because Symfony doesn't like them.
+        $prettyFilename = iconv('UTF-8', 'ASCII//TRANSLIT', $prettyFilename);
+
         $this->metadata()->save(new FileMeta(array('key' => 'pretty.filename', 'value' => $prettyFilename)));
 
         return $prettyFilename;
