@@ -45,9 +45,9 @@ Donate
                                     <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/x-click-but04.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                                 </form>
                             </td>
-                            <td><code>1F8HN7K5K2vryntHs3QjUE6VgY5jd5R61w</code></td>
-                            <td><code>LSzg516AYfLyThdtfaDrxtSeyC2j9sH1in</code></td>
-                            <td><code>6hmPDvbxLxe1dWV5oDK1CwcDDiEZfxYcqG</code></td>
+                            <td><code>1LzQJyvYNxYLNf8ryQUZdrEQqV5yFPPTEu</code></td>
+                            <td><code>LVjsSVPwhtBhh4m27P3r6B6zFyKgvFTZWt</code></td>
+                            <td><code>6hsrZ2T6AhRvfy14zJTBx5WG2w5q26tzCJ</code></td>
                         </tr>
                 </table>
             </div>
