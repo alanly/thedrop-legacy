@@ -191,7 +191,11 @@ class RepositoryFile extends Eloquent
                 if ($episodeTitle = $this->getMetadata('episode.title'))
                     $prettyFilename .= ' - ' . $episodeTitle;
 
-                $prettyFilename .= ' (' . $this->getMetadata('media.quality') . ').' . $this->getExtension();
+                // If after all this, we don't have anything...
+                if ($prettyFilename === '')
+                    $prettyFilename = $this->name;
+                else
+                    $prettyFilename .= ' (' . $this->getMetadata('media.quality') . ').' . $this->getExtension();
 
                 break;
             case "video.movie":
