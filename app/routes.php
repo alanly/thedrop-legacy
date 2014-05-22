@@ -149,7 +149,12 @@ Route::group(array('before' => 'auth', 'prefix' => 'my'), function() {
     Route::get('shows', array('as' => 'shows', 'before' => 'auth', function() {
         $shows = Cache::remember('show.list', 1440, function() {
             // Define Trakt API url to use for show list
-            $listUrl = 'http://api.trakt.tv/user/list.json/1edc74874f676ae6c67b22ebdc511f35/alanly/tracked-tv-shows';
+            $listUrl = Config::get('metadata.connections.trakt.url')
+                     . "/user/list.json/"
+                     . Config::get('metadata.connections.trakt.key')
+                     . "/"
+                     . Config::get('metadata.connections.trakt.username')
+                     . "/tracked-tv-shows";
 
             // Retrieve listing from Trakt.tv
             try {
