@@ -120,7 +120,8 @@ class RepositoryFile extends Eloquent
 
         if (! File::isFile($path)) return false;
 
-        return exec('stat -c %s ' . escapeshellarg($path));
+        $info = stat($path);
+        return $info['size'];
 
     }
 
