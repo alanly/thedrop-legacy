@@ -20,7 +20,7 @@
 
         <link href="{{ asset('img/icon-256.png') }}" rel="icon" type="image/png">
         <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/main.min.css" rel="stylesheet">
+        <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
         <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
         @yield('style')
         @if(Sentry::check() && Sentry::getUser()->getSetting('background.enable') == 'true')

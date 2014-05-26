@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('style')
-  <link href="/css/auth.min.css" rel="stylesheet">
+  <link href="{{ asset('css/auth.min.css') }}" rel="stylesheet">
 @stop
 
 @section('body')
