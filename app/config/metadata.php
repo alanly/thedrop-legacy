@@ -15,7 +15,9 @@ return array(
 
         // Trakt.TV API
         'trakt' => array(
+            'url' => "http://api.trakt.tv",
             'key' => '1edc74874f676ae6c67b22ebdc511f35',
+            'username' => 'alanly',
         ),
 
     ),

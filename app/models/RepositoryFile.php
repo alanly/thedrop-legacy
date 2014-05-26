@@ -9,10 +9,6 @@ class RepositoryFile extends Eloquent
 
     protected $fillable = array('name', 'size', 'path', 'modified_at', 'type');
 
-    public static $PUBLIC_DIRECTORY = '';
-
-    public static $WATCH_DIRECTORY = '/home/alan/repos/';
-
     /*
      * Overloaded Methods
      */
@@ -77,7 +73,7 @@ class RepositoryFile extends Eloquent
 
         Cache::forget('files');
 
-        $watchDirFiles = File::allFiles(static::$WATCH_DIRECTORY);
+        $watchDirFiles = File::allFiles(Config::get('thedrop.watch_path'));
 
         foreach ($watchDirFiles as $file) {
             if (RepositoryFile::where('name', $file->getFilename())->count() == 0) {
@@ -413,8 +409,9 @@ class MetadataParser
     private static function getSummaryFromTrakt($type, $data)
     {
 
-        $url = "http://api.trakt.tv/"
-                . implode('/', $type) 
+        $url = Config::get('metadata.connections.trakt.url')
+                . "/"
+                . implode('/', $type)
                 . "/summary.json/"
                 . Config::get('metadata.connections.trakt.key')
                 . "/"

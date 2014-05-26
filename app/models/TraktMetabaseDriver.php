@@ -3,8 +3,6 @@
 class TraktMetabaseDriver implements MetabaseDriverInterface
 {
   private $supportedMedia = array('television', 'movie');
-  private $traktApiBaseUrl = "http://api.trakt.tv/";
-  private $traktApiKey = "1edc74874f676ae6c67b22ebdc511f35";
 
   public function getSupportedMedia()
   {
@@ -118,7 +116,14 @@ class TraktMetabaseDriver implements MetabaseDriverInterface
 
   private function queryTraktApi($query, $parameters)
   {
-    $requestUrl = $this->traktApiBaseUrl . implode('/', $query) . ".json/{$this->traktApiKey}/" . implode('/', $parameters);
+
+    $requestUrl = Config::get('metadata.connections.trakt.url')
+            . "/"
+            . implode('/', $query)
+            . ".json/"
+            . Config::get('metadata.connections.trakt.key')
+            . "/"
+            . implode('/', $parameters);
 
     if (Config::get('app.debug', false))
       Log::info("TraktMetabaseDriver: Request URL set to [{$requestUrl}]. Querying...");
