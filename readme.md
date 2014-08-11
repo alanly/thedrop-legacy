@@ -1,5 +1,9 @@
 # the drop.
 
+**Notice:** Development has been discontinued; there is a complete rewrite of the application in the pipeline that represents a new vision of what the architecture should be, mainly focusing on a robust API that everyone can build upon.
+
+---
+
 This is the codebase behind [the drop](https://thedrop.pw/).
 
 The Drop is a content repository site. Content is regularily added to a local directory (either manually or via automated processing) and the content is then indexed by this application and made available to registered users of the site.
