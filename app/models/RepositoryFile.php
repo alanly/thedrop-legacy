@@ -200,7 +200,10 @@ class RepositoryFile extends Eloquent
 
                 break;
             case "video.movie":
-                $prettyFilename = $this->getMetadata('movie.title') . ' (' . $this->getMetadata('movie.year') . ') - ' . $this->getMetadata('media.quality') . '.' . $this->getExtension();
+                $movieTitle = $this->getMetadata('movie.title')
+                if (! $movieTitle) { break }
+
+                $prettyFilename = $movieTitle . ' (' . $this->getMetadata('movie.year') . ') - ' . $this->getMetadata('media.quality') . '.' . $this->getExtension();
                 break;
         }
 
