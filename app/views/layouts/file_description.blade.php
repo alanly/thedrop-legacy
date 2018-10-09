@@ -27,7 +27,7 @@
   <a 
     href="{{ URL::to('/download', array($user->api_key, $file->name), false) }}"
     title="{{{ $file->getMetadata('movie.overview') }}}">
-    @if (! $file->getMetadata('movie.title')
+    @if (! $file->getMetadata('movie.title'))
       {{{ $file->name }}}
     @else
       {{{ $file->getMetadata('movie.title') }}} ({{{ $file->getMetadata('movie.year') }}})
